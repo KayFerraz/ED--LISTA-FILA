@@ -1,0 +1,105 @@
+﻿#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+
+
+#define ESPACOS " "
+#define MAXALUNOS 5
+
+
+typedef char Str50[51];
+
+
+FILE *info;
+info = fopen ("info.txt", "r");
+
+
+typedef enum mes {janeiro = 1, fevereiro, marco,abril,maio,junho,
+                    julho, agosto, setembro, outubro, novembro, dezembro} MES;
+
+
+
+
+typedef struct data {
+                        int dia;
+                        MES mes;
+                        int ano;
+                    } DATA;
+
+
+typedef struct raaluno {
+                        int dia;
+                    } RAALUNO;
+
+
+
+
+
+
+typedef struct notas {                      /*notas de cada aluno*/
+                        float nota_prova[2];
+                        float nota_trabalho[2];
+                        float media_final;
+                    } NOTAS;
+
+
+
+
+typedef struct dados_pessoais {                  /*dados pessoais*/
+                                Str50 nome;
+                                RAALUNO;
+                                DATA nasc;
+                                NOTAS notas;
+                                /*inserir media final*/
+                              } DADOS_PESSOAIS;
+
+
+
+
+int main (){
+    DADOS_PESSOAIS alunos[MAXALUNOS];
+    DADOS_PESSOAIS aluno,
+                   *ptra1;
+
+
+
+
+    ptra1 = &aluno1;
+
+
+    arq = fopen("info.txt", "r");
+    if (arq != NULL){
+        printf("\nArquivo aberto com sucesso!\n");
+
+
+
+
+
+
+        for (int i=0; i<MAXALUNOS; i++){
+            fscanf(arq, "%s", alunos[i].nome);
+            fscanf(arq, "%d", &(alunos[i].nasc.dia));
+            fscanf(arq, "%d", &(alunos[i].nasc.mes));
+            fscanf(arq, "%d", &(alunos[i].nasc.ano));
+            fscanf(arq, "%f", &(alunos[i].notas.nota_prova[0]));
+            fscanf(arq, "%f", &(alunos[i].notas.nota_prova[1]));
+            fscanf(arq, "%f", &(alunos[i].notas.nota_trabalho[0]));
+            fscanf(arq, "%f", &(alunos[i].notas.nota_trabalho[1]));
+            fscanf(arq, "%f", &(alunos[i].notas.media_final));
+        }
+        printf("\nImpressao dos componentes por meio da variavel 'aluno1'\n");
+    printf("Aluno %s", aluno1.nome); printf(ESPACOS);
+    printf("Nascimento %2d/%2d/%4d \n", aluno1.nasc.dia, aluno1.nasc.mes, aluno1.nasc.ano);
+    printf("RA %s", RAALUNO); printf(ESPACOS);
+    printf("Provas (P1, P2 ) = (%3.1f,%3.1f,%3.1f)\n", aluno1.notas.nota_prova[0],
+                                                            aluno1.notas.nota_prova[1];
+                                                            );
+
+
+fflush(stdin);
+    getchar();
+    return 0;
+    }
+}
